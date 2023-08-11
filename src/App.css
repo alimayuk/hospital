@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Borel&family=Bricolage+Grotesque:opsz,wght@10..48,400;10..48,600;10..48,700;10..48,800&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--customfont);
+}
+li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+
+:root {
+  --customfont : 'Bricolage Grotesque', sans-serif;
+}
+
+.navbar {
+  background-color: #f2eaea;
+  color: black;
+  display: flex;
+  padding: 1rem 2rem;
+  box-shadow:  26px 26px 92px #8d8d8d,
+             -26px -26px 92px #ffffff;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 16px 0;
+}
+
+.navbar-logo {
+  font-size: 50px;
+  font-family: var(--customfont);
+  font-weight: 800;
+  margin-right: 2rem;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+}
+
+.nav-item {
+  margin: 0 1rem;
+  position: relative;
+}
+
+nav .nav-btn{
+  padding: 15px 25px;
+  background-color: black;
+  color: white;
+  border-radius: 20px;
+  transition: all .1s ease-in;
+  font-weight: bold;
+   &:hover{
+  color: black;
+  background-color: white;
+  border: 1px solid black;
+}
+}
+
+.nav-links {
+  color: black;
+  transition: color .2s ease-in-out;
+}
+
+.nav-links:hover {
+  color: #66fcf1;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #333;
+  z-index: 1;
+  width: 100%;
+}
+
+.dropdown-item {
+  width: 100%;
+  padding: 1rem;
+  text-align: center;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+  .nav-menu {
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 70px; 
+    left: 0;
+    background-color: #333;
+    opacity: 0.9;
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-100%);
+  }
+
+  .nav-menu.active {
+    transform: translateX(0);
+  }
+
+  .nav-item {
+    width: 100%;
+    margin: 0;
+    text-align: center;
+  }
+
+  .dropdown-menu {
+    position: static;
+    background-color: transparent;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #333;
+    z-index: 1;
+    width: 100%;
+  }
+
+  .nav-item:hover .dropdown-menu {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .nav-menu.active,
+  .nav-item:hover .dropdown-menu {
+    transform: translateX(0);
+  }
+  .dropdown-menu {
+    position: static;
+    background-color: transparent;
+  }
+  .dropdown-menu.active {
+    display: block;
+  }
+}
